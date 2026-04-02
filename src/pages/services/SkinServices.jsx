@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { skinTreatments } from '../../data/skinTreatments'
+import { resolveAssetPath } from '../../utils/assetPath'
 
 const skinRouteMap = {
   'acne-treatment': '/treatments/skin/acne-treatment',
@@ -107,7 +108,7 @@ export default function SkinServices() {
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-brand-section/80 mb-4">
                     <img
-                      src={service.heroImages?.[0] || 'https://images.pexels.com/photos/7446666/pexels-photo-7446666.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
+                      src={resolveAssetPath(service.heroImages?.[0]) || 'https://images.pexels.com/photos/7446666/pexels-photo-7446666.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
                       alt={`${service.title} preview`}
                       loading="lazy"
                       onError={handleImageError}

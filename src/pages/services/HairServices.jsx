@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { hairTreatments } from '../../data/hairTreatments'
+import { resolveAssetPath } from '../../utils/assetPath'
 
 const hairRouteMap = {
   'prp-therapy': '/treatments/hair/prp-therapy',
@@ -103,7 +104,7 @@ export default function HairServices() {
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-brand-section/80 mb-4">
                     <img
-                      src={service.heroImages?.[0] || 'https://images.pexels.com/photos/10600180/pexels-photo-10600180.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
+                      src={resolveAssetPath(service.heroImages?.[0]) || 'https://images.pexels.com/photos/10600180/pexels-photo-10600180.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
                       alt={`${service.title} preview`}
                       loading="lazy"
                       onError={handleImageError}

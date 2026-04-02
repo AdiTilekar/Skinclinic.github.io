@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { resolveAssetPath } from '../utils/assetPath'
 
 const fallbackSquare =
   "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200' viewBox='0 0 1200 1200'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%23f3ece6'/%3E%3Cstop offset='1' stop-color='%23eaded3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1200' height='1200' fill='url(%23g)'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23806f62' font-size='42' font-family='Inter, Arial, sans-serif'%3EClinic Result%3C/text%3E%3C/svg%3E"
@@ -14,7 +15,7 @@ const buildImages = (prefix, count, section) =>
   Array.from({ length: count }, (_, index) => ({
     id: `${section}-${index + 1}`,
     section,
-    src: `/images/gallery/${section}/${prefix}-${String(index + 1).padStart(2, '0')}.webp`,
+    src: resolveAssetPath(`/images/gallery/${section}/${prefix}-${String(index + 1).padStart(2, '0')}.webp`),
     alt: `${section} clinic result ${index + 1}`,
   }))
 

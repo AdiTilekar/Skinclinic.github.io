@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import AnimatedTextReveal from './AnimatedTextReveal'
+import { resolveAssetPath } from '../utils/assetPath'
 
 const defaultHeroImages = [
   'https://images.pexels.com/photos/7446666/pexels-photo-7446666.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop',
@@ -76,11 +77,17 @@ export default function SkinTreatmentPage({ treatment }) {
     )
   }
 
-  const heroImages = treatment.heroImages?.length ? treatment.heroImages.slice(0, 3) : defaultHeroImages.slice(0, 3)
-  const galleryImages = treatment.galleryImages?.length ? treatment.galleryImages.slice(0, 4) : defaultGalleryImages
-  const transformations = treatment.transformations?.length
+  const heroImages = (treatment.heroImages?.length ? treatment.heroImages.slice(0, 3) : defaultHeroImages.slice(0, 3))
+    .map(resolveAssetPath)
+  const galleryImages = (treatment.galleryImages?.length ? treatment.galleryImages.slice(0, 4) : defaultGalleryImages)
+    .map(resolveAssetPath)
+  const transformations = (treatment.transformations?.length
     ? treatment.transformations.slice(0, 2)
-    : defaultTransformations
+    : defaultTransformations).map((item) => ({
+      ...item,
+      before: resolveAssetPath(item.before),
+      after: resolveAssetPath(item.after),
+    }))
   const treatmentStats = treatment.treatmentStats?.length
     ? treatment.treatmentStats.slice(0, 3)
     : defaultStats

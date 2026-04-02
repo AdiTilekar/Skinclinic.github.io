@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
+import { resolveAssetPath } from '../utils/assetPath'
 
 const SITE_NAME = "Dr. Kapure's Hair Skin Laser Clinic"
 const DEFAULT_DESCRIPTION =
@@ -84,12 +85,13 @@ export default function SeoManager() {
   const meta = resolveMeta(location.pathname)
   const siteUrl = import.meta.env.VITE_SITE_URL || (typeof window !== 'undefined' ? window.location.origin : '')
   const canonical = `${siteUrl}${location.pathname}`
+  const defaultImageUrl = `${siteUrl}${resolveAssetPath(DEFAULT_IMAGE)}`
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
     name: SITE_NAME,
     url: siteUrl,
-    image: `${siteUrl}${DEFAULT_IMAGE}`,
+    image: defaultImageUrl,
     telephone: '+91 83294 67612',
     address: {
       '@type': 'PostalAddress',
@@ -115,12 +117,12 @@ export default function SeoManager() {
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:image" content={`${siteUrl}${DEFAULT_IMAGE}`} />
+      <meta property="og:image" content={defaultImageUrl} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
-      <meta name="twitter:image" content={`${siteUrl}${DEFAULT_IMAGE}`} />
+      <meta name="twitter:image" content={defaultImageUrl} />
 
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>

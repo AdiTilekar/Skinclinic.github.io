@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { resolveAssetPath } from '../utils/assetPath'
 
 const skinLinks = [
   { label: 'Acne Treatment', to: '/treatments/skin/acne-treatment' },
@@ -187,7 +188,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 shrink-0">
             <img
-              src="/logo.png"
+              src={resolveAssetPath('/logo.png')}
               alt="Dr. Kapure's Hair Skin Laser Clinic"
               className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover"
             />

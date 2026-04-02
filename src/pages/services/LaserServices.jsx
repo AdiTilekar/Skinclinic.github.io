@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { laserTreatments } from '../../data/laserTreatments'
+import { resolveAssetPath } from '../../utils/assetPath'
 
 const laserRouteMap = {
   'laser-hair-removal': '/treatments/laser/laser-hair-removal',
@@ -101,7 +102,7 @@ export default function LaserServices() {
                 >
                   <div className="relative rounded-2xl overflow-hidden border border-brand-section/80 mb-4">
                     <img
-                      src={service.heroImages?.[0] || 'https://images.pexels.com/photos/7446683/pexels-photo-7446683.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
+                      src={resolveAssetPath(service.heroImages?.[0]) || 'https://images.pexels.com/photos/7446683/pexels-photo-7446683.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop'}
                       alt={`${service.title} preview`}
                       loading="lazy"
                       onError={handleImageError}
