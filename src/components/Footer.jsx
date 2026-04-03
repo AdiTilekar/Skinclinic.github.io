@@ -8,6 +8,8 @@ function openExternal(event, url) {
 }
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-brand-dark">
       <div className="container-max px-4 lg:px-16 py-14">
@@ -132,7 +134,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-4 px-4">
         <div className="container-max flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-brand-label/70">
-          <p>© 2025 Dr. Kapure's Hair Skin Laser Clinic. All rights reserved.</p>
+          <p>© {currentYear} Dr. Kapure's Hair Skin Laser Clinic. All rights reserved.</p>
           <p>Designed with care for better skin &amp; hair health</p>
         </div>
       </div>
