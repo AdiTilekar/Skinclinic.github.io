@@ -11,6 +11,7 @@ import doctorHomeMeetExpertImg from '../assets/doctor/doctor-home-meet-expert.we
 import skinTreatmentImg from '../assets/home/skin-treatment.webp'
 import hairTreatmentImg from '../assets/home/hair-treatment.webp'
 import laserTreatmentImg from '../assets/home/laser-treatment.webp'
+import { resolveAssetPath } from '../utils/assetPath'
 
 /* ─── Reusable: scroll-triggered animation wrapper ─── */
 function AnimatedSection({ children, className = '', delay = 0 }) {
@@ -279,6 +280,11 @@ export default function Home() {
   const antiAgingCard = bentoCardMap['anti-aging']
   const AntiAgingIcon = antiAgingCard.icon
   const loopingTestimonials = [...testimonials, ...testimonials]
+  const resolvedGalleryItems = galleryItems.map((item) => ({
+    ...item,
+    beforeImage: resolveAssetPath(item.beforeImage),
+    afterImage: resolveAssetPath(item.afterImage),
+  }))
 
   return (
     <div className="bg-brand-bg overflow-x-hidden">
@@ -954,7 +960,7 @@ export default function Home() {
         {/* Single row — scrolls left continuously */}
         <div className="gallery-marquee mb-10">
           <div className="gallery-marquee-track">
-            {[...galleryItems, ...galleryItems, ...galleryItems].map((item, i) => (
+            {[...resolvedGalleryItems, ...resolvedGalleryItems, ...resolvedGalleryItems].map((item, i) => (
               <div key={`g-${i}`} className="gallery-card group">
                 <div className="flex h-52 sm:h-56">
                   <div className="flex-1 border-r border-white/40 relative overflow-hidden">
