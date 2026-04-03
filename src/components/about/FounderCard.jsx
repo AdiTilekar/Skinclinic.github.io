@@ -36,10 +36,9 @@ export default function FounderCard() {
                 health with confidence.
               </p>
               <p>
-                A qualified medical graduate (BAMS, MS - General Surgery), she pursued
-                advanced training in Trichology and Cosmetology, Hair Transplant
-                procedures, and laser-based treatments. She also completed specialized
-                hair restoration and transplant training at NIHTC Institute, Mumbai.
+                Her professional qualifications include BAMS, MS (General Surgery),
+                Fellowship in Cosmetology, Fellowship in Trichology, Fellowship in Hair
+                Transplant, and Fellowship in Aesthetic Laser.
               </p>
               <p>
                 Dr. Kapure is recognized for precision in hair restoration, advanced PRP

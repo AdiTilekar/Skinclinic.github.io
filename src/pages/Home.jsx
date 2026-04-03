@@ -52,7 +52,7 @@ function CountUp({ target, suffix = '' }) {
 
 /* ─── Data: Section 2 – What's Special ─── */
 const specialFeatures = [
-  { icon: UserCheck, title: 'Expert Dermatologist', desc: 'Treatments guided by a highly qualified dermatologist with years of hands-on clinical experience.' },
+  { icon: UserCheck, title: 'Trichologist and Cosmetologist', desc: 'Treatments guided by a highly qualified trichologist and cosmetologist with years of hands-on clinical experience.' },
   { icon: Cpu, title: 'Advanced Technology', desc: 'US-FDA approved lasers and cutting-edge devices for safe, effective procedures.' },
   { icon: Heart, title: 'Personalized Care', desc: 'Every treatment plan is custom-designed around your unique skin type, concerns, and goals.' },
   { icon: TrendingUp, title: 'Proven Results', desc: 'Thousands of happy patients with visible, lasting transformations they love.' },
@@ -79,10 +79,12 @@ const signatureTreatments = [
     image: skinTreatmentImg,
     imagePosition: '50% 42%',
   },
-  {
-    title: 'Hair Treatments',
-    desc: 'Comprehensive hair care including PRP therapy, transplant consultation, and hair fall solutions.',
-    to: '/services/hair',
+                    'BAMS',
+                    'MS (General Surgery)',
+                    'Fellowship in Cosmetology',
+                    'Fellowship in Trichology',
+                    'Fellowship in Hair Transplant',
+                    'Fellowship in Aesthetic Laser',
     gradient: 'from-brand-section/34 to-brand-card/52',
     icon: Scissors,
     image: hairTreatmentImg,
@@ -207,7 +209,7 @@ const faqs = [
   { q: 'Is laser treatment safe?', a: 'Yes, all our laser treatments use US-FDA approved equipment and are performed under the supervision of qualified dermatologists. We follow strict safety protocols and conduct a detailed skin assessment before every laser procedure.' },
   { q: 'How many sessions do I need?', a: 'The number of sessions varies based on the condition being treated, its severity, and your skin type. During your initial consultation, Dr. Kapure will provide a detailed treatment plan with an estimated number of sessions.' },
   { q: 'Do you offer consultation before treatment?', a: 'Absolutely. We always begin with a thorough one-on-one consultation to understand your concerns, assess your skin, and discuss the best treatment options before proceeding with any procedure.' },
-  { q: 'What are your clinic timings?', a: 'Our clinic is open Monday to Saturday, 10:00 AM to 8:00 PM. Sunday consultations are available by prior appointment only. We recommend booking in advance to avoid wait times.' },
+  { q: 'What are your clinic timings?', a: 'Our clinic operates in two sessions: Morning from 10:00 AM to 2:00 PM and Evening from 5:00 PM to 9:00 PM. Please book in advance to avoid wait times.' },
   { q: 'How do I book an appointment?', a: 'You can book an appointment by calling us directly, filling out the contact form on our website, or visiting the clinic in person. We also accept walk-ins, though prior appointments are given priority.' },
 ]
 
@@ -386,8 +388,8 @@ export default function Home() {
                       <Award size={20} className="text-brand-gold" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-brand-heading">Certified Specialist</p>
-                      <p className="text-xs font-semibold text-brand-heading">Advanced Dermatology &amp; Cosmetology</p>
+                      <p className="text-sm font-semibold text-brand-heading">Certified Trichologist &amp; Cosmetologist</p>
+                      <p className="text-xs font-semibold text-brand-heading">Advanced Trichology &amp; Cosmetology</p>
                     </div>
                   </div>
                 </motion.div>
@@ -410,8 +412,9 @@ export default function Home() {
             </h2>
             <div className="mt-5 h-px w-28 mx-auto bg-gradient-to-r from-transparent via-[#d4af37]/70 to-transparent" />
             <p className="mt-5 max-w-[700px] mx-auto text-[#74695f] text-sm md:text-base leading-relaxed font-sans">
-              A carefully curated blend of clinical dermatology, advanced technology, and aesthetic precision
-              designed to deliver safe care with visible, lasting outcomes.
+              A carefully curated blend of clinical trichology, advanced cosmetology,
+              and aesthetic precision designed to deliver safe care with visible,
+              lasting outcomes.
             </p>
           </AnimatedSection>
 
@@ -770,10 +773,12 @@ export default function Home() {
 
                 <ul className="space-y-3">
                   {[
-                    'BAMS, MS — General Surgery',
-                    'Fellowship in Trichology and Cosmetology',
-                    'Training in Hair Transplant procedures at NIHTC Institute, Mumbai',
-                    'Certified laser expert in advanced aesthetic and dermatological care',
+                    'BAMS',
+                    'MS (General Surgery)',
+                    'Fellowship in Cosmetology',
+                    'Fellowship in Trichology',
+                    'Fellowship in Hair Transplant',
+                    'Fellowship in Aesthetic Laser',
                   ].map((item, i) => (
                     <motion.li
                       key={i}
@@ -828,8 +833,9 @@ export default function Home() {
                 <article className="rounded-[22px] border border-[#d4b78f] bg-[#fdf7ef] p-6 md:p-7 shadow-[0_14px_34px_-28px_rgba(61,45,30,0.42)] hover:-translate-y-1.5 hover:shadow-[0_22px_42px_-28px_rgba(61,45,30,0.5)] transition-all duration-300">
                   <Quote size={22} className="text-[#9a7a54]" aria-label="Quote icon" />
                   <p className="mt-4 text-[#4c3c2f] italic leading-relaxed text-[0.98rem] font-sans">
-                    &ldquo;With over a decade of dermatology experience, Dr. Kapure combines evidence-based
-                    skin science with aesthetic precision to deliver safe, natural-looking, and lasting results.&rdquo;
+                    &ldquo;With over a decade of aesthetic clinical experience, Dr. Kapure combines
+                    evidence-based skin and hair science with aesthetic precision to deliver
+                    safe, natural-looking, and lasting results.&rdquo;
                   </p>
                 </article>
 
@@ -850,10 +856,11 @@ export default function Home() {
                   <Sparkles size={20} className="text-[#f4dcb5]" aria-label="Excellence icon" />
                 </div>
 
-                <h3 className="mt-5 text-2xl font-heading font-semibold text-[#f7e3c3]">Excellence in Dermatology</h3>
+                <h3 className="mt-5 text-2xl font-heading font-semibold text-[#f7e3c3]">Excellence in Trichology &amp; Cosmetology</h3>
                 <p className="mt-3 text-[#f2e4d0]/90 leading-relaxed text-sm md:text-base font-sans">
-                  A premium blend of medical dermatology and modern aesthetic protocols focused on
-                  safe, visible, and consistent long-term results.
+                  A premium blend of medical trichology, advanced cosmetology, and modern
+                  aesthetic protocols focused on safe, visible, and consistent long-term
+                  results.
                 </p>
 
                 <ul className="mt-5 space-y-3" aria-label="Clinic strengths list">

@@ -28,13 +28,13 @@ const IS_API_CONFIGURED = Boolean(API_BASE_URL)
 
 const CLINIC_PHONE = '+91 8329467612'
 const CLINIC_PHONE_HREF = 'tel:+918329467612'
-const CLINIC_EMAIL = 'info@drkapureclinic.com'
-const CLINIC_EMAIL_HREF = 'mailto:info@drkapureclinic.com'
+const CLINIC_EMAIL = 'drkapuresclinic1@gmail.com'
+const CLINIC_EMAIL_HREF = 'mailto:drkapuresclinic1@gmail.com'
 
 const infoItems = [
   {
     label: 'Working Hours',
-    value: 'Monday to Saturday, 10:00 AM to 8:00 PM. Sunday by prior appointment.',
+    value: 'Morning: 10:00 AM to 2:00 PM. Evening: 5:00 PM to 9:00 PM.',
   },
   {
     label: 'Location',

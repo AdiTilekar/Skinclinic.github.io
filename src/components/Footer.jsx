@@ -82,11 +82,11 @@ export default function Footer() {
                 </div>
                 <span className="text-sm text-brand-label group-hover:text-white transition-colors">+91 8329467612</span>
               </a>
-              <a href="mailto:info@drkapureclinic.com" className="flex items-center gap-3 group">
+              <a href="mailto:drkapuresclinic1@gmail.com" className="flex items-center gap-3 group">
                 <div className="p-2.5 rounded-full bg-white/10 group-hover:bg-brand-gold transition-colors shrink-0">
                   <Mail size={15} className="text-brand-gold group-hover:text-white transition-colors" />
                 </div>
-                <span className="text-sm text-brand-label group-hover:text-white transition-colors">info@drkapureclinic.com</span>
+                <span className="text-sm text-brand-label group-hover:text-white transition-colors">drkapuresclinic1@gmail.com</span>
               </a>
               <a
                 href="https://www.google.com/maps/place/Dr.KAPURE%E2%80%99S+HAIR+%7C+SKIN+%7C+LASER+CLINIC/@18.663708,73.8012567,17z/data=!4m15!1m8!3m7!1s0x3bc2b829bf0797a1:0x91685ac641bef6aa!2sShivaji+Park+Trail,+Sector+No.+18,+Chinchwad,+Pimpri-Chinchwad,+Maharashtra+411019!3b1!8m2!3d18.663708!4d73.8012567!16s%2Fg%2F11kxgwcwn5!3m5!1s0x3bc2b96dfb491fe9:0xe7698368afb94c59!8m2!3d18.6647085!4d73.7990569!16s%2Fg%2F11vqh4lsxj?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D"
@@ -112,9 +112,8 @@ export default function Footer() {
             </div>
             <div className="space-y-2">
               {[
-                { day: 'Mon - Fri', time: '10:00 AM – 8:00 PM' },
-                { day: 'Saturday', time: '10:00 AM – 6:00 PM' },
-                { day: 'Sunday', time: 'By Appointment' },
+                { day: 'Morning', time: '10:00 AM – 2:00 PM' },
+                { day: 'Evening', time: '5:00 PM – 9:00 PM' },
               ].map(({ day, time }) => (
                 <div key={day} className="flex justify-between text-sm">
                   <span className="text-brand-label">{day}</span>
