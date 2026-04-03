@@ -386,8 +386,8 @@ export default function Home() {
                       <Award size={20} className="text-brand-gold" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-brand-heading">Certified Trichologist &amp; Cosmetologist</p>
-                      <p className="text-xs font-semibold text-brand-heading">Advanced Trichology &amp; Cosmetology</p>
+                      <p className="text-sm font-semibold text-brand-heading">Certified Trichologist</p>
+                      <p className="text-xs font-semibold text-brand-heading">Advanced Cosmetology &amp; Aesthetic Care</p>
                     </div>
                   </div>
                 </motion.div>
@@ -842,7 +842,7 @@ export default function Home() {
                     <div className="w-10 h-10 rounded-full bg-[#f2e4d3] border border-[#d8be99] flex items-center justify-center">
                       <UserCheck size={18} className="text-[#8b6b48]" aria-label="Happy clients icon" />
                     </div>
-                    <p className="text-[#2f261f] font-semibold leading-snug font-sans">Over 5,000+ Happy Clients</p>
+                    <p className="text-[#2f261f] font-semibold leading-snug font-sans">2,345+ Happy Clients</p>
                   </div>
                 </article>
               </div>
