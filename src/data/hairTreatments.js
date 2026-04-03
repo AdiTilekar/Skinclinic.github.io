@@ -748,7 +748,6 @@
 ]
 
 const pexels = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop`
-const emptyImage = 'data:image/gif;base64,R0lGODlhAQABAAAAACw='
 
 const hairVisualsById = {
 	'hair-fall-treatment': {
@@ -890,9 +889,9 @@ const hairVisualsById = {
 	},
 	'low-light-laser-treatment': {
 		heroImages: [
-			'/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Low%20Light%20Laser%20Hero%201.webp',
-			'/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Low%20Light%20Laser%20Hero%202.webp',
-			'/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Low%20Light%20Laser%20Hero%203.webp',
+			'/images/treatments/hair/low-light-laser-treatment/hero/hero-01.webp',
+			'/images/treatments/hair/low-light-laser-treatment/hero/hero-02.webp',
+			'/images/treatments/hair/low-light-laser-treatment/hero/hero-03.webp',
 		],
 		galleryImages: [
 			'/images/treatments/hair/low-light-laser-treatment/treatment_gallery/treatment_gallery-01.webp',
@@ -901,23 +900,15 @@ const hairVisualsById = {
 			'/images/treatments/hair/low-light-laser-treatment/treatment_gallery/treatment_gallery-04.webp',
 		],
 		transformations: [
-			{
-				title: 'Shedding Stabilization Progress',
-				before: '/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Female%20Before.webp',
-				after: '/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Female%20After.webp',
-			},
-			{
-				title: 'Hair Shaft Thickening Trend',
-				before: '/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Male%20Before.webp',
-				after: '/images/treatments/hair/low-light-laser-treatment/treatment_gallery/Male%20After.webp',
-			},
+			{ title: 'Shedding Stabilization Progress', before: '/images/treatments/hair/low-light-laser-treatment/transformations/before-01.webp', after: '/images/treatments/hair/low-light-laser-treatment/transformations/after-01.webp' },
+			{ title: 'Hair Shaft Thickening Trend', before: '/images/treatments/hair/low-light-laser-treatment/transformations/before-02.webp', after: '/images/treatments/hair/low-light-laser-treatment/transformations/after-02.webp' },
 		],
 	},
 	'micro-needling': {
 		heroImages: [
-			'/images/treatments/hair/micro-needling/treatment_gallery/Micro%20Needling%20Hero%201.webp',
-			'/images/treatments/hair/micro-needling/treatment_gallery/Micro%20Needling%20Hero%202.webp',
-			'/images/treatments/hair/micro-needling/treatment_gallery/Micro%20Needling%20Hero%203.webp',
+			'/images/treatments/hair/micro-needling/hero/hero-01.webp',
+			'/images/treatments/hair/micro-needling/hero/hero-02.webp',
+			'/images/treatments/hair/micro-needling/hero/hero-03.webp',
 		],
 		galleryImages: [
 			'/images/treatments/hair/micro-needling/treatment_gallery/treatment_gallery-01.webp',
@@ -926,16 +917,8 @@ const hairVisualsById = {
 			'/images/treatments/hair/micro-needling/treatment_gallery/treatment_gallery-04.webp',
 		],
 		transformations: [
-			{
-				title: 'Follicle Activation Progress',
-				before: '/images/treatments/hair/micro-needling/treatment_gallery/Female%20Before.webp',
-				after: '/images/treatments/hair/micro-needling/treatment_gallery/Female%20After.webp',
-			},
-			{
-				title: 'Density and Texture Support',
-				before: '/images/treatments/hair/micro-needling/treatment_gallery/Male%20Before.webp',
-				after: '/images/treatments/hair/micro-needling/treatment_gallery/Male%20After.webp',
-			},
+			{ title: 'Follicle Activation Progress', before: '/images/treatments/hair/micro-needling/transformations/before-01.webp', after: '/images/treatments/hair/micro-needling/transformations/after-01.webp' },
+			{ title: 'Density and Texture Support', before: '/images/treatments/hair/micro-needling/transformations/before-02.webp', after: '/images/treatments/hair/micro-needling/transformations/after-02.webp' },
 		],
 	},
 }

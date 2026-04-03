@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import galleryManifest from '../data/galleryManifest'
 import { resolveAssetPath } from '../utils/assetPath'
 
 const fallbackSquare =
@@ -11,19 +12,14 @@ const sections = [
   { key: 'laser', label: 'Laser' },
 ]
 
-const buildImages = (prefix, count, section) =>
-  Array.from({ length: count }, (_, index) => ({
+const galleryImages = Object.entries(galleryManifest).flatMap(([section, images]) =>
+  images.map((src, index) => ({
     id: `${section}-${index + 1}`,
     section,
-    src: resolveAssetPath(`/images/gallery/${section}/${prefix}-${String(index + 1).padStart(2, '0')}.webp`),
+    src: resolveAssetPath(src),
     alt: `${section} clinic result ${index + 1}`,
   }))
-
-const galleryImages = [
-  ...buildImages('hair', 21, 'hair'),
-  ...buildImages('skin', 3, 'skin'),
-  ...buildImages('laser', 1, 'laser'),
-]
+)
 
 export default function Gallery() {
   const [activeSection, setActiveSection] = useState('all')

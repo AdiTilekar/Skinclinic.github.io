@@ -6,7 +6,7 @@ import styles from './AboutSections.module.css'
 
 const stats = [
   { target: 5000, suffix: '+', label: 'Consultations Completed' },
-  { target: 10, suffix: '+', label: 'Years of Clinical Focus' },
+  { target: 6, suffix: '+', label: 'Years of Clinical Focus' },
   { target: 30, suffix: '+', label: 'Specialized Treatments' },
   { target: 50, suffix: '/5', label: 'Rating on Google', divisor: 10, href: 'https://google.com/maps?cid=16675003580963966041&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAEYASAB&hl=en-US&source=embed' },
 ]
@@ -52,7 +52,7 @@ export default function HeroBanner() {
           </h1>
           <p className={`${styles.heroSubtext} ${revealClass(styles.delay02)}`}>
             At <span className={styles.heroBrandInline}>Dr. Kapure&apos;s Hair | Skin | Laser Clinic</span>, we combine
-            <u>medical-grade technology</u> with an <em>artistic understanding of beauty</em> to
+            medical-grade technology with an <em>artistic understanding of beauty</em> to
             craft care plans that feel precise, personal, and results-driven.
           </p>
           <Link to="/services/hair" className={`${styles.heroCta} ${revealClass(styles.delay04)}`}>

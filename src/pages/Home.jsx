@@ -6,7 +6,11 @@ import {
   CheckCircle, Heart, Zap, Scissors, Sun, Phone, ChevronDown,
   Droplets, TrendingUp, Cpu, Play, Quote, Camera
 } from 'lucide-react'
-import { resolveAssetPath } from '../utils/assetPath'
+import doctorHomeHeroImg from '../assets/doctor/doctor-home-hero.webp'
+import doctorHomeMeetExpertImg from '../assets/doctor/doctor-home-meet-expert.webp'
+import skinTreatmentImg from '../assets/home/skin-treatment.webp'
+import hairTreatmentImg from '../assets/home/hair-treatment.webp'
+import laserTreatmentImg from '../assets/home/laser-treatment.webp'
 
 /* ─── Reusable: scroll-triggered animation wrapper ─── */
 function AnimatedSection({ children, className = '', delay = 0 }) {
@@ -71,7 +75,7 @@ const signatureTreatments = [
     to: '/services/skin',
     gradient: 'from-brand-bg/34 to-brand-section/52',
     icon: Sparkles,
-    image: 'https://images.pexels.com/photos/4586726/pexels-photo-4586726.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop',
+    image: skinTreatmentImg,
     imagePosition: '50% 42%',
   },
   {
@@ -80,7 +84,7 @@ const signatureTreatments = [
     to: '/services/hair',
     gradient: 'from-brand-section/34 to-brand-card/52',
     icon: Scissors,
-    image: 'https://images.pexels.com/photos/8834074/pexels-photo-8834074.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop',
+    image: hairTreatmentImg,
     imagePosition: '50% 32%',
   },
   {
@@ -89,7 +93,7 @@ const signatureTreatments = [
     to: '/services/laser',
     gradient: 'from-brand-bg/34 to-brand-section/52',
     icon: Zap,
-    image: 'https://images.pexels.com/photos/7446683/pexels-photo-7446683.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop',
+    image: laserTreatmentImg,
     imagePosition: '54% 44%',
   },
 ]
@@ -275,11 +279,6 @@ export default function Home() {
   const antiAgingCard = bentoCardMap['anti-aging']
   const AntiAgingIcon = antiAgingCard.icon
   const loopingTestimonials = [...testimonials, ...testimonials]
-  const resolvedGalleryItems = galleryItems.map((item) => ({
-    ...item,
-    beforeImage: resolveAssetPath(item.beforeImage),
-    afterImage: resolveAssetPath(item.afterImage),
-  }))
 
   return (
     <div className="bg-brand-bg overflow-x-hidden">
@@ -359,13 +358,15 @@ export default function Home() {
               className="relative flex justify-center"
             >
               <div className="relative w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden bg-gradient-to-b from-brand-gold/20 to-brand-gold/5 border border-white/50 shadow-xl">
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                  <div className="w-32 h-32 rounded-full bg-brand-gold/20 flex items-center justify-center mb-6">
-                    <span className="text-5xl font-bold text-brand-gold">DK</span>
-                  </div>
-                  <p className="text-brand-heading font-bold text-xl">Dr. Kapure</p>
-                  <p className="text-brand-heading text-sm mt-1">Hair • Skin • Laser Specialist</p>
-                </div>
+                <img
+                  src={doctorHomeHeroImg}
+                  alt="Dr. Smita Kapure - Hair, Skin and Laser Specialist"
+                  loading="lazy"
+                  onError={handleImageError}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: '50% 28%' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
 
                 {/* Floating certification badge */}
                 <motion.div
@@ -380,7 +381,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-brand-heading">Certified Specialist</p>
-                      <p className="text-xs text-brand-text">Advanced Dermatology &amp; Cosmetology</p>
+                      <p className="text-xs font-semibold text-brand-heading">Advanced Dermatology &amp; Cosmetology</p>
                     </div>
                   </div>
                 </motion.div>
@@ -429,13 +430,13 @@ export default function Home() {
             <div className="rounded-[22px] border border-[rgba(212,175,55,0.28)] bg-[#fffaf5] p-10 md:p-14 shadow-[0_14px_34px_-26px_rgba(54,38,24,0.34)]">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                 {[
-                  { value: 5000, suffix: '+', label: 'Happy Clients' },
-                  { value: 10, suffix: '+', label: 'Years Experience' },
+                  { value: 2345, suffix: '+', label: 'Happy Clients' },
+                  { value: 6, suffix: '+', label: 'Years Experience' },
                   { value: 30, suffix: '+', label: 'Treatments' },
                   {
                     value: 5,
                     suffix: '.0/5',
-                    label: 'RATING ON GOOGLE',
+                    label: 'Rating on Google',
                     href: 'https://google.com/maps?cid=16675003580963966041&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAEYASAB&hl=en-US&source=embed',
                   },
                 ].map((s, i) => (
@@ -695,7 +696,7 @@ export default function Home() {
           <AnimatedSection className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-brand-gold font-medium text-sm uppercase tracking-[0.15em]">MEET THE EXPERT</span>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-heading mt-3 font-serif">
-              Meet Dr.&nbsp;Kapure — Pune&apos;s Trusted Skin Specialist
+              Meet Dr.&nbsp;Smita Kapure — Aesthetic Physician &amp; Hair Expert
             </h2>
           </AnimatedSection>
 
@@ -722,6 +723,14 @@ export default function Home() {
                 />
                 
                 <div className="relative w-72 sm:w-80 md:w-96 aspect-square rounded-full overflow-hidden bg-gradient-to-br from-brand-gold/20 to-brand-gold/5 border-2 border-brand-gold/50 shadow-2xl">
+                  <img
+                    src={doctorHomeMeetExpertImg}
+                    alt="Dr. Smita Kapure - Aesthetic Physician and Hair Expert"
+                    loading="lazy"
+                    onError={handleImageError}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: '50% 24%' }}
+                  />
                   {/* Smooth glow pulse effect */}
                   <motion.div
                     className="absolute inset-0 rounded-full"
@@ -735,13 +744,7 @@ export default function Home() {
                     transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', repeatType: 'loop' }}
                   />
                   
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
-                    <div className="w-36 h-36 rounded-full bg-brand-gold/30 flex items-center justify-center mb-4 flex-shrink-0">
-                      <span className="text-6xl font-bold text-brand-gold">DK</span>
-                    </div>
-                    <p className="text-brand-heading font-bold text-lg">Dr. Kapure</p>
-                    <p className="text-brand-heading text-sm mt-1">Dermatologist</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
                 </div>
               </div>
             </AnimatedSection>
@@ -749,22 +752,22 @@ export default function Home() {
             {/* Right — Bio */}
             <AnimatedSection delay={0.2}>
               <div className="space-y-5">
-                <h3 className="text-2xl font-bold text-brand-heading font-serif">Dr. Kapure</h3>
-                <p className="text-brand-gold font-medium">Dermatologist &amp; Cosmetologist</p>
+                <h3 className="text-2xl font-bold text-brand-heading font-serif">Dr. Smita Kapure</h3>
+                <p className="text-brand-gold font-medium">Aesthetic Physician &amp; Hair Expert</p>
                 <p className="text-brand-text leading-relaxed">
-                  With a deep passion for dermatology and years of clinical excellence,
-                  Dr.&nbsp;Kapure brings advanced medical expertise combined with a compassionate,
-                  patient-first approach. Specialising in both medical and cosmetic dermatology,
-                  Dr.&nbsp;Kapure ensures every patient receives safe, effective, and
-                  scientifically-backed care.
+                  Dr. Smita Kapure is known for her patient-centric approach and natural,
+                  confidence-boosting results. With over 6 years of experience in
+                  non-surgical aesthetic medicine and advanced hair treatments, she combines
+                  advanced medical science with genuine care to deliver customized solutions
+                  for every patient.
                 </p>
 
                 <ul className="space-y-3">
                   {[
-                    'MBBS, MD — Dermatology, Venereology & Leprosy',
-                    '10+ Years of Clinical Experience',
-                    'Specialises in Laser Treatments, Anti-Aging & Hair Restoration',
-                    'Certified in Advanced Aesthetic Procedures',
+                    'BAMS, MS — General Surgery',
+                    'Fellowship in Trichology and Cosmetology',
+                    'Training in Hair Transplant procedures at NIHTC Institute, Mumbai',
+                    'Certified laser expert in advanced aesthetic and dermatological care',
                   ].map((item, i) => (
                     <motion.li
                       key={i}
@@ -788,8 +791,8 @@ export default function Home() {
                   <div className="flex gap-3">
                     <Quote size={20} className="text-brand-blush shrink-0 mt-1" />
                     <p className="text-brand-heading text-sm italic leading-relaxed">
-                      &ldquo;We believe in combining medical expertise with aesthetic care to restore
-                      your skin&apos;s natural health and glow.&rdquo;
+                      &ldquo;Her philosophy centers on enhancing natural beauty while maintaining the
+                      highest standards of safety and medical ethics.&rdquo;
                     </p>
                   </div>
                 </div>
@@ -951,7 +954,7 @@ export default function Home() {
         {/* Single row — scrolls left continuously */}
         <div className="gallery-marquee mb-10">
           <div className="gallery-marquee-track">
-            {[...resolvedGalleryItems, ...resolvedGalleryItems, ...resolvedGalleryItems].map((item, i) => (
+            {[...galleryItems, ...galleryItems, ...galleryItems].map((item, i) => (
               <div key={`g-${i}`} className="gallery-card group">
                 <div className="flex h-52 sm:h-56">
                   <div className="flex-1 border-r border-white/40 relative overflow-hidden">
@@ -1055,25 +1058,25 @@ export default function Home() {
           <div className="relative max-w-[900px] mx-auto">
             <div className="pointer-events-none absolute -inset-8 bg-[radial-gradient(circle,rgba(212,175,55,0.14),transparent_64%)]" />
             <motion.div
-              className="relative overflow-hidden rounded-[24px] border border-[rgba(226,211,194,0.45)] bg-[rgba(255,250,245,0.42)] backdrop-blur-[12px] shadow-[0_20px_60px_rgba(142,92,74,0.15)] px-6 md:px-10 py-10 md:py-12 text-center"
+              className="relative overflow-hidden rounded-[24px] glass-card px-6 md:px-10 py-10 md:py-12 text-center"
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
             >
               <img
-                src="https://images.pexels.com/photos/4586726/pexels-photo-4586726.jpeg?auto=compress&cs=tinysrgb&w=1800&fit=crop"
+                src={hairTreatmentImg}
                 alt="Skin treatment consultation"
                 loading="lazy"
                 onError={handleImageError}
                 className="absolute inset-0 h-full w-full object-cover blur-[2px] scale-105"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(248,245,240,0.75),rgba(243,236,228,0.85))]" />
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.4),rgba(243,236,228,0.3))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(248,245,240,0.28),rgba(243,236,228,0.38))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.14),rgba(243,236,228,0.1))]" />
 
               <div className="relative">
                 <h2 className="text-3xl md:text-5xl font-bold text-[#2F261F] mb-4 font-heading">
                   Ready to Begin Your Transformation?
                 </h2>
-                <p className="text-[#5F544A] max-w-xl mx-auto mb-8 leading-relaxed font-sans">
+                <p className="text-[#1F1711] font-semibold max-w-xl mx-auto mb-8 leading-relaxed font-sans">
                   Book a personalized consultation today. Let our experts create a treatment plan
                   tailored just for you.
                 </p>

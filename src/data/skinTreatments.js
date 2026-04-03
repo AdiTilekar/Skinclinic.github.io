@@ -1021,7 +1021,6 @@
 
 const pexels = (id) =>
 	`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1600&fit=crop`
-const emptyImage = 'data:image/gif;base64,R0lGODlhAQABAAAAACw='
 
 const skinVisualsById = {
 	'acne-treatment': {
@@ -1161,9 +1160,9 @@ const skinVisualsById = {
 	},
 	'skin-tightening': {
 		heroImages: [
-			'/images/treatments/skin/skin-tightening/treatment_gallery/Skin%20Tightening%20Hero%201.webp',
-			'/images/treatments/skin/skin-tightening/treatment_gallery/Skin%20Tightening%20Hero%202.webp',
-			'/images/treatments/skin/skin-tightening/treatment_gallery/Skin%20Tightening%20Hero%203.webp',
+			'/images/treatments/skin/skin-tightening/hero/hero-01.webp',
+			'/images/treatments/skin/skin-tightening/hero/hero-02.webp',
+			'/images/treatments/skin/skin-tightening/hero/hero-03.webp',
 		],
 		galleryImages: [
 			'/images/treatments/skin/skin-tightening/treatment_gallery/treatment_gallery-01.webp',
@@ -1172,23 +1171,15 @@ const skinVisualsById = {
 			'/images/treatments/skin/skin-tightening/treatment_gallery/treatment_gallery-04.webp',
 		],
 		transformations: [
-			{
-				title: 'Jawline and Neck Tightening Progress',
-				before: '/images/treatments/skin/skin-tightening/treatment_gallery/Female%20before.png',
-				after: '/images/treatments/skin/skin-tightening/treatment_gallery/Female%20after.png',
-			},
-			{
-				title: 'Lift and Contour Improvement',
-				before: '/images/treatments/skin/skin-tightening/treatment_gallery/Male%20Before.png',
-				after: '/images/treatments/skin/skin-tightening/treatment_gallery/Male%20after.png',
-			},
+			{ title: 'Jawline and Neck Tightening Progress', before: '/images/treatments/skin/skin-tightening/transformations/before-01.webp', after: '/images/treatments/skin/skin-tightening/transformations/after-01.webp' },
+			{ title: 'Lift and Contour Improvement', before: '/images/treatments/skin/skin-tightening/transformations/before-02.webp', after: '/images/treatments/skin/skin-tightening/transformations/after-02.webp' },
 		],
 	},
 	'glutathione-iv': {
 		heroImages: [
-			'/images/treatments/skin/glutathione-iv/treatment_gallery/Glutathione%20IV%20Hero%201.webp',
-			'/images/treatments/skin/glutathione-iv/treatment_gallery/Glutathione%20IV%20Hero%202.webp',
-			'/images/treatments/skin/glutathione-iv/treatment_gallery/Glutathione%20IV%20Hero%203.webp',
+			'/images/treatments/skin/glutathione-iv/hero/hero-01.webp',
+			'/images/treatments/skin/glutathione-iv/hero/hero-02.webp',
+			'/images/treatments/skin/glutathione-iv/hero/hero-03.webp',
 		],
 		galleryImages: [
 			'/images/treatments/skin/glutathione-iv/treatment_gallery/treatment_gallery-01.webp',
@@ -1197,23 +1188,15 @@ const skinVisualsById = {
 			'/images/treatments/skin/glutathione-iv/treatment_gallery/treatment_gallery-04.webp',
 		],
 		transformations: [
-			{
-				title: 'Tone and Glow Progress',
-				before: '/images/treatments/skin/glutathione-iv/treatment_gallery/Female%20Before.webp',
-				after: '/images/treatments/skin/glutathione-iv/treatment_gallery/Female%20After.webp',
-			},
-			{
-				title: 'Radiance and Clarity Improvement',
-				before: '/images/treatments/skin/glutathione-iv/treatment_gallery/Male%20before.webp',
-				after: '/images/treatments/skin/glutathione-iv/treatment_gallery/Male%20After.webp',
-			},
+			{ title: 'Tone and Glow Progress', before: '/images/treatments/skin/glutathione-iv/transformations/before-01.webp', after: '/images/treatments/skin/glutathione-iv/transformations/after-01.webp' },
+			{ title: 'Radiance and Clarity Improvement', before: '/images/treatments/skin/glutathione-iv/transformations/before-02.webp', after: '/images/treatments/skin/glutathione-iv/transformations/after-02.webp' },
 		],
 	},
 	'vampire-facial': {
 		heroImages: [
-			'/images/treatments/skin/vampire-facial/treatment_gallery/Vampire%20Facial%20Hero%201.webp',
-			'/images/treatments/skin/vampire-facial/treatment_gallery/Vampire%20Facial%20Hero%202.webp',
-			'/images/treatments/skin/vampire-facial/treatment_gallery/Vampire%20Facial%20Hero%203.webp',
+			'/images/treatments/skin/vampire-facial/hero/hero-01.webp',
+			'/images/treatments/skin/vampire-facial/hero/hero-02.webp',
+			'/images/treatments/skin/vampire-facial/hero/hero-03.webp',
 		],
 		galleryImages: [
 			'/images/treatments/skin/vampire-facial/treatment_gallery/treatment_gallery-01.webp',
@@ -1222,16 +1205,8 @@ const skinVisualsById = {
 			'/images/treatments/skin/vampire-facial/treatment_gallery/treatment_gallery-04.webp',
 		],
 		transformations: [
-			{
-				title: 'Scar Texture Softening',
-				before: '/images/treatments/skin/vampire-facial/treatment_gallery/Female%20before.webp',
-				after: '/images/treatments/skin/vampire-facial/treatment_gallery/Female%20after.webp',
-			},
-			{
-				title: 'Collagen Glow Remodeling',
-				before: '/images/treatments/skin/vampire-facial/treatment_gallery/Male%20Before.webp',
-				after: '/images/treatments/skin/vampire-facial/treatment_gallery/Male%20after.webp',
-			},
+			{ title: 'Scar Texture Softening', before: '/images/treatments/skin/vampire-facial/transformations/before-01.webp', after: '/images/treatments/skin/vampire-facial/transformations/after-01.webp' },
+			{ title: 'Collagen Glow Remodeling', before: '/images/treatments/skin/vampire-facial/transformations/before-02.webp', after: '/images/treatments/skin/vampire-facial/transformations/after-02.webp' },
 		],
 	},
 	'skin-tag-removal': {

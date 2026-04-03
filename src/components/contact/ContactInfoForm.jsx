@@ -1,21 +1,30 @@
 import { useState } from 'react'
 import styles from './ContactPage.module.css'
 
-// Dynamically determine API URL based on current hostname
+const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1'])
+
 const getApiBaseUrl = () => {
-  const envUrl = import.meta.env.VITE_API_BASE_URL
-  if (envUrl) return envUrl
-  
-  // If accessing via network IP (e.g., 192.168.1.106), use same IP for API
-  // Otherwise use localhost for local development
+  const envUrl = String(import.meta.env.VITE_API_BASE_URL || '').trim()
+  if (envUrl) return envUrl.replace(/\/+$/, '')
+
   const hostname = window.location.hostname
-  if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
-    return `http://${hostname}:8080`
+  const isLocalHost = LOCAL_HOSTS.has(hostname)
+
+  if (import.meta.env.PROD) {
+    console.error('Missing VITE_API_BASE_URL in production. Set it to your HTTPS backend origin.')
+    return ''
   }
+
+  if (!isLocalHost) {
+    const protocol = window.location.protocol === 'https:' ? 'https:' : 'http:'
+    return `${protocol}//${hostname}:8080`
+  }
+
   return 'http://localhost:8080'
 }
 
 const API_BASE_URL = getApiBaseUrl()
+const IS_API_CONFIGURED = Boolean(API_BASE_URL)
 
 const CLINIC_PHONE = '+91 8329467612'
 const CLINIC_PHONE_HREF = 'tel:+918329467612'
@@ -90,6 +99,12 @@ export default function ContactInfoForm() {
       return
     }
 
+    if (!IS_API_CONFIGURED) {
+      setSubmitStatus('error')
+      setSubmitMessage('Booking is temporarily unavailable due to configuration. Please call +91 83294 67612.')
+      return
+    }
+
     const payload = {
       fullName: String(formData.get('fullName') || '').trim(),
       phoneNumber: normalizedPhone,
@@ -101,17 +116,23 @@ export default function ContactInfoForm() {
       idempotencyKey: generateIdempotencyKey(),
     }
 
+    let timeoutId
+
     try {
       setIsSubmitting(true)
       setSubmitStatus('idle')
       setSubmitMessage('')
       setSubmitProgress('Submitting your request...')
 
+      const controller = new AbortController()
+      timeoutId = window.setTimeout(() => controller.abort(), 12000)
+
       const response = await fetch(`${API_BASE_URL}/api/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        signal: controller.signal,
         body: JSON.stringify(payload),
       })
 
@@ -129,8 +150,11 @@ export default function ContactInfoForm() {
     }
     catch (error) {
       const rawMessage = String(error?.message || '').toLowerCase()
+      const isTimedOut = error?.name === 'AbortError'
       const isBackendUnavailable =
-        rawMessage.includes('failed to fetch')
+        isTimedOut
+        || rawMessage.includes('aborted')
+        || rawMessage.includes('failed to fetch')
         || rawMessage.includes('networkerror')
         || rawMessage.includes('network request failed')
         || rawMessage.includes('load failed')
@@ -146,6 +170,9 @@ export default function ContactInfoForm() {
       form.reset()
     }
     finally {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId)
+      }
       setIsSubmitting(false)
     }
   }
@@ -231,7 +258,7 @@ export default function ContactInfoForm() {
                 </label>
               </div>
 
-              <button className={styles.submitBtn} type="submit" disabled={isSubmitting}>
+              <button className={styles.submitBtn} type="submit" disabled={isSubmitting || !IS_API_CONFIGURED}>
                 {isSubmitting ? (
                   <span className={styles.submitBtnContent}>
                     <span className={styles.loadingDot} aria-hidden="true" />
@@ -241,6 +268,12 @@ export default function ContactInfoForm() {
                   'Submit Request'
                 )}
               </button>
+
+              {!IS_API_CONFIGURED ? (
+                <p className={`${styles.submitMessage} ${styles.submitError}`} aria-live="polite">
+                  Booking service is not configured. Please call +91 83294 67612.
+                </p>
+              ) : null}
 
               {isSubmitting && submitProgress ? (
                 <p className={styles.submitProgress} aria-live="polite">
