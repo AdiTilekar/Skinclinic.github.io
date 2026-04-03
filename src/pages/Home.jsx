@@ -331,8 +331,9 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.55 }}
                 className="text-base text-brand-text max-w-lg leading-relaxed"
               >
-                Experience advanced hair restoration and scalp care treatments at
-                Dr.&nbsp;Kapure&apos;s Hair Skin Laser Clinic, led by expert specialist Dr.&nbsp;Kapure.
+                Discover advanced hair restoration and scalp care treatments at
+                Dr.&nbsp;Kapure&apos;s Hair Skin Laser Clinic, led by renowned specialist
+                Dr.&nbsp;Smita&nbsp;Kapure.
               </motion.p>
 
               <motion.div
